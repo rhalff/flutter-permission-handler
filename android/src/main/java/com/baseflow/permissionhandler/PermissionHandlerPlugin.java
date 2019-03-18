@@ -228,14 +228,14 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
     final List<String> names = getManifestNames(permission);
 
     if (names == null) {
-      Log.d(LOG_TAG, "No android specific permissions needed for: $permission");
+      Log.d(LOG_TAG, String.format("No android specific permissions needed for: %s", permission));
 
       return PERMISSION_STATUS_GRANTED;
     }
 
     //if no permissions were found then there is an issue and permission is not set in Android manifest
     if (names.size() == 0) {
-      Log.d(LOG_TAG, "No permissions found in manifest for: $permission");
+      Log.d(LOG_TAG, String.format("No permissions found in manifest for: %s", permission));
       return PERMISSION_STATUS_UNKNOWN;
     }
 
@@ -294,7 +294,7 @@ public class PermissionHandlerPlugin implements MethodCallHandler {
 
     // if isn't an android specific group then go ahead and return false;
     if (names == null) {
-      Log.d(LOG_TAG, "No android specific permissions needed for: $permission");
+      Log.d(LOG_TAG, String.format("No android specific permissions needed for: %s", permission));
       return false;
     }
 
